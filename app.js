@@ -1,13 +1,10 @@
-// Ture or False
-const amIFat = true;
-console.log(amIFat);
+const a = 5;
+const b = 2;
 
-// Null=Nothing
-const anything = null;
-console.log(anything);
+const myName = "Mongudd";
 
-// Undefined
-let something;
-console.log(something);
+console.log(a + b);
+console.log(a * b);
+console.log(a / b);
 
-console.log(something, anything);
+console.log("hello " + myName);
