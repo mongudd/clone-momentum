@@ -1,13 +1,16 @@
-const a = 5;
-const b = 2;
+const player = {
+  name: "mongudd",
+  points: 10,
+  fat: true,
+};
 
-let myName = "Mongudd";
+console.log(player.name);
+console.log(player["name"]);
+console.log(player);
+// Update objects
+player.fat = false;
+console.log(player);
 
-console.log(a + b);
-console.log(a * b);
-console.log(a / b);
-
-console.log("hello " + myName);
-
-myName = "Ddmongu";
-console.log("Your new name is " + myName);
+player.lastName = "potato";
+player.points = player.points + 20;
+console.log(player);
