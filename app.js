@@ -1,23 +1,23 @@
 const calculator = {
   plus: function (a, b) {
-    console.log(a + b);
+    return a + b;
   },
   minus: function (a, b) {
-    console.log(a - b);
+    return a - b;
   },
   multiple: function (a, b) {
-    console.log(a * b);
+    return a * b;
   },
   divide: function (a, b) {
-    console.log(a / b);
+    return a / b;
   },
   squareRoot: function (a, b) {
-    console.log(a ** b);
+    return a ** b;
   },
 };
 
-calculator.plus(2, 5);
-calculator.minus(2, 5);
-calculator.multiple(2, 5);
-calculator.divide(2, 5);
-calculator.squareRoot(2, 5);
+const plusResult = calculator.plus(2, 3);
+const minusResult = calculator.minus(plusResult, 10);
+const multipleResult = calculator.multiple(10, minusResult);
+const divideResult = calculator.divide(multipleResult, plusResult);
+const squareRootResult = calculator.squareRoot(divideResult, minusResult);
