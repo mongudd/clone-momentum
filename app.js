@@ -1,13 +1,10 @@
-// Ture or False
-const amIFat = true;
-console.log(amIFat);
+const daysOfWeek = ["mon", "tue", "wed", "thu", "fri", "sat"];
 
-// Null=Nothing
-const anything = null;
-console.log(anything);
+// Get Item from Array
+console.log(daysOfWeek[0]);
+console.log(daysOfWeek[4]);
+console.log(daysOfWeek);
 
-// Undefined
-let something;
-console.log(something);
-
-console.log(something, anything);
+// Add one more day to the array
+daysOfWeek.push("sun");
+console.log(daysOfWeek);
