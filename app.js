@@ -1,31 +1,14 @@
-const h1 = document.querySelector("div.hello:first-child h1");
+/* 
+const loginForm = document.getElementById("login-form");*/
+const loginForm = document.querySelector("#login-form");
+const loginInput = loginForm.querySelector("input");
+const loginBtn = loginForm.querySelector("button");
+/* simplify
+const loginInput = document.querySelector("#login-form input");
+const loginBtn = document.querySelector("#login-form button"); */
 
-// existing class name is changing by JS
-// sexy-font -> clicked
-/*function handleh1Click() {
-  const clickedClass = "clicked";
-  if (h1.className === clickedClass) {
-    h1.className = "";
-  } else {
-    h1.className = clickedClass;
-  }
-} */
-
-// To maintain existing class name === className -> classList
-// sexy-font + clicked
-/*function handleh1Click() {
-  const clickedClass = "clicked";
-  if (h1.classList.contains(clickedClass)) {
-    h1.classList.remove(clickedClass);
-  } else {
-    h1.classList.add(clickedClass);
-  }
-} */
-
-// To shorten === classList.contains.remove.add -> toggle
-// sexy-font + clicked
-function handleh1Click() {
-  h1.classList.toggle("clicked");
+function onBtnClick() {
+  console.log("Hello", loginInput.value); // value가 없어도 Hello는 출력됨
 }
 
-h1.addEventListener("click", handleh1Click);
+loginBtn.addEventListener("click", onBtnClick);
