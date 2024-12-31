@@ -1,7 +1,9 @@
 const clock = document.querySelector("#clock");
 
-function sayHello() {
-  console.log("hello");
+function getClock() {
+  const date = new Date();
+  clock.innerText = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
 }
 
-setInterval(sayHello, 5000);
+getClock(); // 1초 대기 없이 바로
+setInterval(getClock, 1000);
