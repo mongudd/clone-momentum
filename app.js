@@ -1,13 +1,13 @@
-const a = 5;
-const b = 2;
+// Ture or False
+const amIFat = true;
+console.log(amIFat);
 
-let myName = "Mongudd";
+// Null=Nothing
+const anything = null;
+console.log(anything);
 
-console.log(a + b);
-console.log(a * b);
-console.log(a / b);
+// Undefined
+let something;
+console.log(something);
 
-console.log("hello " + myName);
-
-myName = "Ddmongu";
-console.log("Your new name is " + myName);
+console.log(something, anything);
