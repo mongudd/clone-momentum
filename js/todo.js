@@ -2,17 +2,18 @@ const toDoForm = document.getElementById("todo-form");
 const toDoList = document.getElementById("todo-list");
 const toDoInput = toDoForm.querySelector("input");
 
-const toDos = [];
+const TODOS_KEY = "todos";
+let toDos = [];
 
-function saveTodo() {
-  localStorage.setItem("todos", JSON.stringify(toDos)); // object , arrary, whatever JS code -> String
-  // by this code, duplicated value also can be saved
+function onTodoSubmit(event) {
+  event.preventDefault();
+  const newTodo = toDoInput.value; // copying current value into new value
+  toDoInput.value = "";
+  toDos.push(newTodo);
+  paintTodo(newTodo);
+  saveTodo();
 }
-
-function deleteTodo(event) {
-  const li = event.target.parentElement;
-  li.remove();
-}
+toDoForm.addEventListener("submit", onTodoSubmit);
 
 function paintTodo(newTodo) {
   const li = document.createElement("li");
@@ -28,13 +29,27 @@ function paintTodo(newTodo) {
   li.appendChild(button); // = make button to delete
 }
 
-function onTodoSubmit(event) {
-  event.preventDefault();
-  const newTodo = toDoInput.value; // copying current value into new value
-  toDoInput.value = "";
-  toDos.push(newTodo);
-  paintTodo(newTodo);
-  saveTodo();
+function deleteTodo(event) {
+  const li = event.target.parentElement;
+  li.remove();
 }
 
-toDoForm.addEventListener("submit", onTodoSubmit);
+function saveTodo() {
+  localStorage.setItem(TODOS_KEY, JSON.stringify(toDos)); // object , arrary, whatever JS code -> String
+  // by this code, duplicated value also can be saved
+}
+
+//Loading
+const savedTodos = localStorage.getItem(TODOS_KEY);
+
+if (savedTodos !== null) {
+  const parsedTodos = JSON.parse(savedTodos); // String -> Array
+  toDos = parsedTodos; // restoring prviouse elements
+  parsedTodos.forEach(paintTodo);
+
+  /*function sayHello(item) {
+  console.log("this is the turn of", item);
+}*/
+  /* simplify
+  parsedTodos.forEach((item) => console.log("this is the turn of ", item)); // = forEach : Array의 각 item에 대해 function을 실행 */
+}
