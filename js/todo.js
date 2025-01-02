@@ -2,19 +2,30 @@ const toDoForm = document.getElementById("todo-form");
 const toDoList = document.getElementById("todo-list");
 const toDoInput = toDoForm.querySelector("input");
 
-function paintTodo(newToDo) {
+function deleteTodo(event) {
+  const li = event.target.parentElement;
+  li.remove();
+}
+
+function paintTodo(newTodo) {
   const li = document.createElement("li");
   const span = document.createElement("span");
-  li.appendChild(span); // now "li" has "span" as child code
-  span.innerText = newToDo;
-  toDoList.appendChild(li); // can't delete and save at this momment
+  span.innerText = newTodo;
+  const button = document.createElement("button");
+  button.innerText = "❌";
+  button.addEventListener("click", deleteTodo);
+
+  // append should be placed at the end
+  li.appendChild(span); // = "li" has "span" as child code
+  toDoList.appendChild(li); // = with only this, can't delete and save
+  li.appendChild(button); // make button to delete
 }
 
-function onToDoSubmit(event) {
+function onTodoSubmit(event) {
   event.preventDefault();
-  const newToDo = toDoInput.value; // copying current value into new value
+  const newTodo = toDoInput.value; // copying current value into new value
   toDoInput.value = "";
-  paintTodo(newToDo);
+  paintTodo(newTodo);
 }
 
-toDoForm.addEventListener("submit", onToDoSubmit);
+toDoForm.addEventListener("submit", onTodoSubmit);
