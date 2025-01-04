@@ -13,7 +13,6 @@ const loginBtn = document.querySelector("#login-form button"); */
 // localstorage에 value 없다면 로그인 폼 o
 
 const greeting = document.querySelector("#greeting");
-
 const HIDDEN_CLASSNAME = "hidden"; // string만 포함된 변수는 대문자로
 const USERNAME_KEY = "Username";
 
@@ -22,16 +21,25 @@ function onLoginSubmit(event) {
   loginForm.classList.add(HIDDEN_CLASSNAME);
   const username = loginInput.value;
   localStorage.setItem(USERNAME_KEY, username);
-  paintGreeting(username);
+  paintingElements(username);
 }
 
 const savedUsername = localStorage.getItem(USERNAME_KEY);
+const todoForm = document.querySelector("#todo-form");
+const todoList = document.querySelector("#todo-list");
+const quoteAuthor = document.querySelector("#quote");
+const weather = document.querySelector("#weather");
 
-function paintGreeting(username) {
+function paintingElements(username) {
   // 이 username은 위에서 선언된 username과는 별개. tomato로 설정되어도 전혀 문제없음.
   greeting.classList.remove(HIDDEN_CLASSNAME);
   greeting.innerText = `Hello ${username}`;
+
   clock.classList.remove(HIDDEN_CLASSNAME);
+  todoForm.classList.remove(HIDDEN_CLASSNAME);
+  todoList.classList.remove(HIDDEN_CLASSNAME);
+  quoteAuthor.classList.remove(HIDDEN_CLASSNAME);
+  weather.classList.remove(HIDDEN_CLASSNAME);
 }
 
 if (savedUsername === null) {
@@ -40,5 +48,5 @@ if (savedUsername === null) {
   loginForm.addEventListener("submit", onLoginSubmit);
 } else {
   // show the greeting & clock
-  paintGreeting(savedUsername);
+  paintingElements(savedUsername);
 }

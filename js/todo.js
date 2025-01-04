@@ -26,7 +26,7 @@ function paintTodo(newTodoObj) {
   const span = document.createElement("span");
   span.innerText = newTodoObj.text;
   const button = document.createElement("button");
-  button.innerText = "❌";
+  button.innerText = "X";
   button.addEventListener("click", deleteTodo);
 
   // append should be placed at the end
